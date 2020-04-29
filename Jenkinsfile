@@ -11,5 +11,11 @@ pipeline {
       }
     }
 
+    stage('prod') {
+      steps {
+        pwd(tmp: true)
+      }
+    }
+
   }
 }
