@@ -15,6 +15,7 @@ pipeline {
       steps {
         pwd(tmp: true)
         sh 'uname -r'
+        sh 'hostname'
       }
     }
 
