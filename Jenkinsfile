@@ -7,8 +7,7 @@ pipeline {
       steps {
         sh 'node --version'
         sh 'svn --version'
-        sh '''docker ps
-docker images'''
+        sh 'date'
       }
     }
 
