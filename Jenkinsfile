@@ -7,7 +7,8 @@ pipeline {
       steps {
         sh 'node --version'
         sh 'svn --version'
-        sh 'docker images'
+        sh '''systemctl status docker
+hostname'''
       }
     }
 
