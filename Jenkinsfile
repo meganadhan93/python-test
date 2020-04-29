@@ -14,6 +14,7 @@ pipeline {
     stage('prod') {
       steps {
         pwd(tmp: true)
+        sh 'uname -r'
       }
     }
 
