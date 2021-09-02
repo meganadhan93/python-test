@@ -1,3 +1,5 @@
-FROM node:7-alpine
-
-RUN apk add -U subversion
+FROM python:3
+ADD account.py /
+ADD account_test.py /
+RUN pip install flake8 pytest
+CMD ["pytest"]
