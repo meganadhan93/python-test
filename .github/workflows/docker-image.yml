@@ -1,0 +1,18 @@
+name: viktor CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+   ci_job:
+    runs-on: ubuntu-latest
+    container: python:3.7-buster
+    steps:
+      -  run: |
+           curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
+           ./viktor-cli ci-install
+           ./viktor-cli ci-test
+
+      
+      
