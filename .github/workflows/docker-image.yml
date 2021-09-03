@@ -14,7 +14,7 @@ jobs:
            ./viktor-cli ci-install
            ./viktor-cli ci-test
          env:
-          VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }
+          VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }}
           VIKTOR_TOKEN: ${{ secrets.VIKTOR_TOKEN }} 
           
          
