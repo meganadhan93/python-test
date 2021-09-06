@@ -1,0 +1,9 @@
+viktor==12.4.0
+certifi==2020.4.5.1
+chardet==3.0.4
+compute-rhino3d==0.12.2
+idna==2.9
+requests==2.23.0
+rhino3dm==0.12.0
+urllib3==1.25.9
+wincertstore==0.2
