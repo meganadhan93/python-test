@@ -31,7 +31,7 @@ jobs:
            
            
            # Get diff
-             git diff --name-only origin/master origin/${GITHUB_HEAD_REF}
+             git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF}
             #git diff --name-status >  gitdiff.txt
             #git diff --name-status remotes/origin/master..develop-1 --
             #git diff --name-status origin/master..develop-1 --
