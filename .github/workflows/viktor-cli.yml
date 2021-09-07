@@ -1,0 +1,63 @@
+name: viktor CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+   ci_job:
+    runs-on: ubuntu-latest
+    container: python:3.7-buster
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      -  run: |
+              
+                 set -x
+                 #git check
+                 git checkout -b ${GITHUB_HEAD_REF}
+                 #list branch
+                 git branch -a
+      
+                 curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
+                 ls -al
+                 ls viktor-cli
+               
+                 # Get diff
+                 git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF} > gitdiff.txt
+                 echo " source is ${{ github.head_ref }}"
+                 echo " dest repo is ${{ github.base_ref }}"
+                 # show gitdiff
+                 echo " cat diff files"
+                 cat gitdiff.txt
+                 # Get sub dir name
+                 cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 | uniq > dirname.txt
+                 # cat app names affected
+                 echo " list of app names affected in PR"
+                 cat dirname.txt
+                 
+                 # loop dirname /app name to do install
+                                  
+                 while IFS= read -r dirname
+                 do
+                        echo $dirname
+                        appname=$dirname
+                        
+                        if [ -d "$appname" ]
+                        then
+                        echo "appname $appname will be used for dir change"
+                              #cd $appname
+                              ./viktor-cli ci-install
+                              ./viktor-cli ci-test
+                        else  
+                        echo "appname $appname will be ignored"  
+                             pwd
+                        fi     
+                 done < dirname.txt
+                 #./viktor-cli ci-install
+                 #./viktor-cli ci-test
+         env:
+          VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }}
+          VIKTOR_TOKEN: ${{ secrets.VIKTOR_TOKEN }}

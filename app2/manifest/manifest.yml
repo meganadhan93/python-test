@@ -12,3 +12,5 @@ entities:
     name: Logo's
 metadata:
   background_image: 'viktor-app-bg.jpg'
+
+  ##

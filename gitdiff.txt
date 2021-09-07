@@ -10,3 +10,5 @@ A	manifest/viktor-app-bg.jpg
 A	requirements.txt
 A	tests/test_account.py
 A	tests/test_account_test.py
+
+#
