@@ -23,7 +23,7 @@ jobs:
            
            #git check
            
-           
+           git checkout -b develop-1
            
             #list branch
             git branch -a
@@ -31,7 +31,7 @@ jobs:
            
            # Get diff
             #git diff --name-status >  gitdiff.txt
-            git diff --name-status origin/master..develop-1 --
+            git diff --name-status master..develop-1 --
             git diff --name-status master..develop-1 -- >  gitdiff.txt
            #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
