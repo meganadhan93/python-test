@@ -52,7 +52,7 @@ jobs:
                         echo $dirname
                         appname=$dirname
                         
-                        if [[ -d $appname ]] 
+                        if [ -d "$appname" ]
                         then
                         echo "appname $appname will be used for dir change"
                               #cd $appname
