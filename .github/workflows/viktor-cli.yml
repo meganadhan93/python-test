@@ -48,7 +48,7 @@ jobs:
                         if [ -d "$appname" ]
                         then
                         echo "appname $appname will be used for dir change"
-                              #cd $appname
+                               cd $appname
                               ./viktor-cli ci-install
                               ./viktor-cli ci-test
                         else  
