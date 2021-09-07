@@ -20,7 +20,7 @@ jobs:
            
            #git check
            
-           git checkout -b $GITHUB_HEAD_REF
+           git checkout -b $GITHUB_BASE_REF
            
             #list branch
             git branch -a
