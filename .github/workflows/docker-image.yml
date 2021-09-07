@@ -51,7 +51,6 @@ jobs:
                  do
                         echo $dirname
                         appname=$dirname
-                        ls -al
                         if [[ -d $appname ]] ; then
                         echo "appname $appname will be used for dir change"
                               #cd $appname
@@ -60,8 +59,6 @@ jobs:
                         else  
                              echo "appname $appname will be ignored"  
                              pwd
-                             ls -al
-                              
                         fi     
 
                  done < dirname.txt
