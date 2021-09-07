@@ -16,7 +16,9 @@ jobs:
            ls -al
            ls viktor-cli
            # Get diff
-           git diff --name-status > gitdiff.txt
+           git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF> gitdiff.txt
+           echo " source is ${{ github.head_ref }}"
+           echo " dest repo is ${{ github.base_ref }}"
            cat gitdiff.txt
            # Get sub dir name
            cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 > dirname.txt
@@ -28,7 +30,7 @@ jobs:
                   appname=$dirname
                   echo " appname is $appname & it will run cli path to run"
 
-           done < new.txt
+           done < dirname.txt
 
            
            ./viktor-cli ci-install
