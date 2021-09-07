@@ -31,14 +31,11 @@ jobs:
            
            
            # Get diff
-             git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF}
-            #git diff --name-status >  gitdiff.txt
-            #git diff --name-status remotes/origin/master..develop-1 --
-            #git diff --name-status origin/master..develop-1 --
-            #git diff --name-status remotes/origin/master..develop-1 -- >  gitdiff.txt
-           #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
+           git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF}
            echo " source is ${{ github.head_ref }}"
            echo " dest repo is ${{ github.base_ref }}"
+           # show gitdiff
+           echo " catting diff files"
            cat gitdiff.txt
            # Get sub dir name
            cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 > dirname.txt
