@@ -15,6 +15,22 @@ jobs:
            curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
            ls -al
            ls viktor-cli
+           # Get diff
+           git diff --name-status > gitdiff.txt
+           cat gitdiff.txt
+           # Get sub dir name
+           cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 > dirname.txt
+           # loop dirname /app name to do install
+           while IFS= read -r dirname
+
+           do
+                  echo $dirname
+                  appname=$dirname
+                  echo " appname is $appname & it will run cli path to run"
+
+           done < new.txt
+
+           
            ./viktor-cli ci-install
            ./viktor-cli ci-test
          env:
