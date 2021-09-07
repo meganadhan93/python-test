@@ -31,7 +31,7 @@ jobs:
            
            
            # Get diff
-           git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF}
+           git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF} > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
            echo " dest repo is ${{ github.base_ref }}"
            # show gitdiff
