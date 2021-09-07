@@ -11,6 +11,8 @@ jobs:
   - script: |
       set -x
       curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
+       git branch -a
+       git diff --name-status
       ./viktor-cli ci-install
       ./viktor-cli ci-test
     env:
