@@ -15,16 +15,16 @@ jobs:
           fetch-depth: 0
       -  run: |
            set -x
-           git clone https://github.com/meganadhan93/python-test.git
+           # git clone https://github.com/meganadhan93/python-test.git
            curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
            ls -al
            ls viktor-cli
            git branch -a
 
            
-           #git check
+            #git check
            
-           git checkout -b develop-1
+            git checkout -b ${GITHUB_HEAD_REF}
            
             #list branch
             git branch -a
@@ -34,11 +34,17 @@ jobs:
            git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF} > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
            echo " dest repo is ${{ github.base_ref }}"
+           
            # show gitdiff
-           echo " catting diff files"
+           echo " cat diff files"
+           
            cat gitdiff.txt
            # Get sub dir name
-           cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 > dirname.txt
+           cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 | uniq > dirname.txt
+           
+           # cat app names affected
+           echo " list of app names affected in PR"
+           cat dirname.txt
            # loop dirname /app name to do install
            while IFS= read -r dirname
 
