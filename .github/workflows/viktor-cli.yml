@@ -44,13 +44,16 @@ jobs:
                  do
                         echo $dirname
                         appname=$dirname
-                        
+                        work_dir=$(pwd)
                         if [ -d "$appname" ]
                         then
                         echo "appname $appname will be used for dir change"
                                cd $appname
                               ../viktor-cli ci-install
                               ../viktor-cli ci-test
+                        echo " test completed & going back to pwd"
+                              cd $work_dir
+                        
                         else  
                         echo "appname $appname will be ignored"  
                              pwd
