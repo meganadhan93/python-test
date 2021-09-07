@@ -57,7 +57,9 @@ jobs:
                               ./viktor-cli ci-test
                        
                         else  
-                             echo "appname $appname will be ignored"                        
+                             echo "appname $appname will be ignored"  
+                             pwd
+                             ls -al
                               
                         fi     
 
