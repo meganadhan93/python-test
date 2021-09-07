@@ -1,0 +1,10 @@
+#viktor==12.4.0
+certifi==2020.4.5.1
+chardet==3.0.4
+compute-rhino3d==0.12.2
+idna==2.9
+requests==2.23.0
+#https://rhino-compute-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/rhino3dm-7.7.0.linux-x86_64.tar.gz
+https://rhino-compute-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/rhino3dm-7.7.0-cp37-cp37m-linux_x86_64.whl
+urllib3==1.25.9
+wincertstore==0.2

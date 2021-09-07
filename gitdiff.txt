@@ -1,0 +1,12 @@
+A	.github/workflows/docker-image.yml
+A	app/__init__.py
+A	app/logo/__init__.py
+A	app/logo/controller.py
+A	app/logo/parametrization.py
+A	app/logo_folder/__init__.py
+A	app/logo_folder/controller.py
+A	manifest/manifest.yml
+A	manifest/viktor-app-bg.jpg
+A	requirements.txt
+A	tests/test_account.py
+A	tests/test_account_test.py
