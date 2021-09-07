@@ -40,12 +40,13 @@ jobs:
                  cat dirname.txt
                  
                  # loop dirname /app name to do install
+                 
+                 work_dir=$(pwd)
                                   
                  while IFS= read -r dirname
                  do
                         echo $dirname
                         appname=$dirname
-                        work_dir=$(pwd)
                         if [ -d "$appname" ]
                         then
                         echo "appname $appname will be used for dir change"
