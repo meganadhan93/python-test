@@ -27,7 +27,7 @@ jobs:
            
            
            # Get diff
-            git diff --name-status
+            git diff --name-status >  gitdiff.txt
             #git diff --name-status origin/$GITHUB_BASE_REF $GITHUB_HEAD_REF -- >  gitdiff.txt
            #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
