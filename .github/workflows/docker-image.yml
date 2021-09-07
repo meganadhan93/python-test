@@ -14,9 +14,9 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
       -  run: |
-                set -x
+              
 
-                #git check
+                 #git check
 
                  git checkout -b ${GITHUB_HEAD_REF}
 
@@ -27,7 +27,7 @@ jobs:
                  curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
                  ls -al
                  ls viktor-cli
-                 git branch -a
+               
 
                  # Get diff
                  git diff --name-status origin/${GITHUB_BASE_REF} origin/${GITHUB_HEAD_REF} > gitdiff.txt
@@ -50,17 +50,16 @@ jobs:
                  do
                         echo $dirname
                         appname=$dirname
-                        if [[ $appname == *.txt || $appname == *.yml ]] ;then
+                        if [[ $appname == *.txt || $appname == *.yml || ! -d $appname ]] ;then
                         echo " appname $appname will be ignored"
                         else
-                              if [[ -d $appname ]]; then 
+                            
                               echo " appname $appname will be used for dir change"
-                              cd $appname
+                              #cd $appname
                               ./viktor-cli ci-install
                               ./viktor-cli ci-test
-                              else
-                              echo " its not a directory"
-                              fi
+                              
+                              
                         fi     
 
                  done < dirname.txt
