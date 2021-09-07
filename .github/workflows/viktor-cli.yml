@@ -49,8 +49,8 @@ jobs:
                         then
                         echo "appname $appname will be used for dir change"
                                cd $appname
-                              ./viktor-cli ci-install
-                              ./viktor-cli ci-test
+                              ../viktor-cli ci-install
+                              ../viktor-cli ci-test
                         else  
                         echo "appname $appname will be ignored"  
                              pwd
