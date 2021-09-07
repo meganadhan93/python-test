@@ -10,7 +10,7 @@ jobs:
     container: python:3.7-buster
     steps:
       - uses: actions/checkout@v2
-        name: viktor-cli-test
+        name: Git-checkout
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
@@ -65,3 +65,4 @@ jobs:
          env:
           VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }}
           VIKTOR_TOKEN: ${{ secrets.VIKTOR_TOKEN }}
+         name: viktor-cli-test
