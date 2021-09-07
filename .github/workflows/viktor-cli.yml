@@ -33,7 +33,7 @@ jobs:
                  echo " cat diff files"
                  cat gitdiff.txt
                  # Get sub dir name
-                 cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 | uniq > dirname.txt
+                 cat gitdiff.txt | awk -F ' ' '{print $2}' | cut -d "/" -f1 | cut -d "." -f1 | uniq > dirname.txt
                  # cat app names affected
                  echo " list of app names affected in PR"
                  cat dirname.txt
