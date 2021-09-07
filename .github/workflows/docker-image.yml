@@ -15,6 +15,17 @@ jobs:
            curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
            ls -al
            ls viktor-cli
+           
+          
+           
+           #git check
+           
+           git checkout -b $GITHUB_HEAD_REF
+           
+            #list branch
+            git branch -a
+           
+           
            # Get diff
            git diff --name-status origin/$GITHUB_BASE_REF $GITHUB_HEAD_REF -- >  gitdiff.txt
            #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
