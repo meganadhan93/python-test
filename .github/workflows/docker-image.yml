@@ -32,7 +32,8 @@ jobs:
            # Get diff
             #git diff --name-status >  gitdiff.txt
             git diff --name-status remotes/origin/master..develop-1 --
-            git diff --name-status master..develop-1 -- >  gitdiff.txt
+            git diff --name-status origin/master..develop-1 --
+            git diff --name-status remotes/origin/master..develop-1 -- >  gitdiff.txt
            #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
            echo " dest repo is ${{ github.base_ref }}"
@@ -50,8 +51,8 @@ jobs:
            done < dirname.txt
 
            
-           ./viktor-cli ci-install
-           ./viktor-cli ci-test
+           #./viktor-cli ci-install
+           #./viktor-cli ci-test
          env:
           VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }}
           VIKTOR_TOKEN: ${{ secrets.VIKTOR_TOKEN }} 
