@@ -15,8 +15,8 @@ jobs:
            curl -Lo viktor-cli 'https://developers.viktor.ai/api/v1/get-cli/?platform=linux&format=binary' && chmod +x viktor-cli
            ls -al
            ls viktor-cli
-           
-          
+           git branch -a
+
            
            #git check
            
@@ -28,7 +28,7 @@ jobs:
            
            # Get diff
             #git diff --name-status >  gitdiff.txt
-           git diff --name-status $GITHUB_BASE_REF..$GITHUB_HEAD_REF -- >  gitdiff.txt
+            git diff --name-status $GITHUB_BASE_REF $GITHUB_HEAD_REF -- >  gitdiff.txt
            #git diff --name-status  $GITHUB_HEAD_REF  $GITHUB_BASE_REF > gitdiff.txt
            echo " source is ${{ github.head_ref }}"
            echo " dest repo is ${{ github.base_ref }}"
