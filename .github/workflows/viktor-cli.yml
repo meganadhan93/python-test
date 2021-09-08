@@ -53,9 +53,10 @@ jobs:
                                cd $appname
                               ../viktor-cli ci-install
                               ../viktor-cli ci-test
-                              python -m pytest tests/
+                              #python -m pytest tests/
                         echo " test completed & going back to pwd"
                               cd $work_dir
+                              python -m pytest tests/
                         
                         else  
                         echo "appname $appname will be ignored"  
