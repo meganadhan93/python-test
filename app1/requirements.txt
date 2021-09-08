@@ -6,5 +6,6 @@ idna==2.9
 requests==2.23.0
 #https://rhino-compute-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/rhino3dm-7.7.0.linux-x86_64.tar.gz
 https://rhino-compute-ap-southeast-2.s3.ap-southeast-2.amazonaws.com/rhino3dm-7.7.0-cp37-cp37m-linux_x86_64.whl
+https://github.com/arup-group/arupcomputepy/archive/refs/tags/v0.3.4.zip
 urllib3==1.25.9
 wincertstore==0.2
