@@ -61,7 +61,7 @@ jobs:
                               coverage report -m
                               coverage html
                               
-                              cp htmlcov $work_dir/testresults/$(appname)-pytestreport.html
+                              cp htmlcov/index.html $work_dir/testresults/$appname-pytestreport.html
                             
                         echo " test completed for $appname & going back to pwd"
                               cd $work_dir
@@ -82,6 +82,6 @@ jobs:
       -  name: Upload a Build Artifact
          uses: actions/upload-artifact@v2.2.4
          with:
-           name: pytestreport.html
+           name: pytestreports
            path: testresults/*
       
