@@ -42,6 +42,7 @@ jobs:
                  # loop dirname /app name to do install
                  
                  work_dir=$(pwd)
+                 pip install pytest
                                   
                  while IFS= read -r dirname
                  do
@@ -54,10 +55,15 @@ jobs:
                               ../viktor-cli ci-install
                               ../viktor-cli ci-test
                               ls -a
-                              #python -m pytest tests/
-                        echo " test completed & going back to pwd"
-                              cd $work_dir
                               python -m pytest tests/
+                              if [ $? -ne 0]
+                              echo "please check failure"
+                              else
+                              echo " test done
+                              fi
+                        echo " test completed for $appname & going back to pwd"
+                              cd $work_dir
+                              #python -m pytest tests/
                         
                         else  
                         echo "appname $appname will be ignored"  
