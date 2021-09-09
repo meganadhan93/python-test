@@ -57,9 +57,10 @@ jobs:
                               ls -a
                               python -m pytest tests/
                               if [ $? -ne 0]
+                              then
                               echo "please check failure"
                               else
-                              echo " test done
+                              echo " test done without errors "
                               fi
                         echo " test completed for $appname & going back to pwd"
                               cd $work_dir
