@@ -1,5 +1,5 @@
 import unittest
-#import account as AccountClass
+import account as AccountClass
 
 class Test(unittest.TestCase):
     accInfo = AccountClass.account()
