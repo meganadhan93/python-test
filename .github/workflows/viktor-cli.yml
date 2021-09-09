@@ -59,6 +59,8 @@ jobs:
                               coverage run -m pytest tests/
                               coverage report -m
                               coverage html
+                              ls -al 
+                              cp htmlcov/index.html $work_dir/pytestreport.html
                             
                         echo " test completed for $appname & going back to pwd"
                               cd $work_dir
@@ -75,3 +77,10 @@ jobs:
           VIKTOR_DEV: ${{ secrets.VIKTOR_DEV }}
           VIKTOR_TOKEN: ${{ secrets.VIKTOR_TOKEN }}
          name: viktor-cli-test
+         
+      -  name: Upload a Build Artifact
+         uses: actions/upload-artifact@v2.2.4
+         with:
+           name: pytestreport.html
+           path: $work_dir/pytestreport.html
+      
