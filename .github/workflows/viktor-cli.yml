@@ -43,6 +43,7 @@ jobs:
                  
                  work_dir=$(pwd)
                  pip install pytest
+                 mkdir testresults
                                   
                  while IFS= read -r dirname
                  do
@@ -59,8 +60,8 @@ jobs:
                               coverage run -m pytest tests/
                               coverage report -m
                               coverage html
-                              ls -al 
-                              cp htmlcov/index.html $work_dir/pytestreport.html
+                              
+                              cp htmlcov $work_dir/testresults/$(appname)-pytestreport.html
                             
                         echo " test completed for $appname & going back to pwd"
                               cd $work_dir
@@ -82,5 +83,5 @@ jobs:
          uses: actions/upload-artifact@v2.2.4
          with:
            name: pytestreport.html
-           path: $work_dir/pytestreport.html
+           path: testresults/*
       
