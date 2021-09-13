@@ -50,7 +50,7 @@ jobs:
                         echo $dirname
                         appname=$dirname
                         testpath=$appname/tests
-                        if [[ -d "$appname" &&  -d "$testpath" ]]
+                        if [ -d "$appname" ] && [-d "$testpath" ]
                         then
                         echo "appname $appname will be used for dir change"
                                cd $appname
