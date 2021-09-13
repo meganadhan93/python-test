@@ -1,0 +1,16 @@
+version: '1'
+entity_types:
+  LogoFolder:
+    has_designer: false
+    show_properties: false
+  Logo:
+    has_designer: true
+    show_properties: false
+entities:
+- entity_type: LogoFolder
+  properties:
+    name: Logo's
+metadata:
+  background_image: 'viktor-app-bg.jpg'
+
+  ##
