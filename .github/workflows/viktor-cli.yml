@@ -53,14 +53,12 @@ jobs:
                         then
                         echo "appname $appname will be used for dir change"
                                cd $appname
+                               exit_code=0
                               ../viktor-cli ci-install
-                              ../viktor-cli ci-test
-                              if [$? -ne 0]
-                              then
-                              echo "its not working"
-                              else
-                              echo "its working"
-                              fi
+                              ../viktor-cli ci-test  || exit_code=$?
+                              echo $exit_code
+                                                         
+                                                            
                               ls -a
                               #python -m pytest tests/
                               coverage run -m pytest tests/
