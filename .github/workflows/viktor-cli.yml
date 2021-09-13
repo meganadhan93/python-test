@@ -61,7 +61,8 @@ jobs:
                                                             
                               ls -a
                               #python -m pytest tests/
-                              coverage run -m pytest tests/
+                              coverage run -m pytest tests/  || exit_code=$?
+                              echo $exit_code
                               coverage report -m
                               coverage html
                               
