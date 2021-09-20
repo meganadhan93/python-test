@@ -31,7 +31,7 @@ jobs:
            cat app1/res.resx | grep "UAT"
            if [ $env_name == PROD ]
            then
-           sed -i '0,/UAT/{s/UAT/PROD/}' res.resx
+           sed -i '0,/UAT/{s/UAT/PROD/}' app1/res.resx
            echo " after replace of env name "
            cat app1/res.resx | grep "UAT"
            else
