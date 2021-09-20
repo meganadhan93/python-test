@@ -33,9 +33,9 @@ jobs:
            then
            sed -i '0,/UAT/{s/UAT/PROD/}' app1/res.resx
            echo " after replace of env name "
-           cat app1/res.resx | grep "UAT"
+           cat app1/res.resx
            else
-           echo " By default its UAT"
+           echo " By default env name is $env_name in resx file"
            fi
 
       name: get inputs    
@@ -43,6 +43,10 @@ jobs:
       
     - name: Install dependencies
       run: |
+      
+        pwd 
+        echo " catting resx file"
+        cat app1/res.resx
         echo " env name is 2 $env_name"
         python -m pip install --upgrade pip
         pip install flake8 pytest
