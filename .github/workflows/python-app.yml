@@ -6,7 +6,7 @@ name: Python application
 on: 
  workflow_dispatch:
   inputs:
-   Tag: 
+   tags: 
     description: 'Environment name'
     required: true
     default: 'UAT'
