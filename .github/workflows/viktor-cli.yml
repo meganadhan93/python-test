@@ -1,8 +1,14 @@
 name: viktor CI
 
-on:
-  pull_request:
-    branches: [ master ]
+on: 
+ workflow_dispatch:
+  inputs:
+   Tag: 
+    description: 'PROD'
+    required: true
+    default: 'UAT'
+   
+
 
 jobs:
    ci_job:
