@@ -28,6 +28,15 @@ jobs:
            echo "Tags: ${{ github.event.inputs.tags }}" 
            env_name=${{ github.event.inputs.tags }}
            echo " env name is $env_name"
+           cat app1/res.resx | grep "UAT"
+           if [ $env_name == PROD ]
+           then
+           cat app1/res.resx | sed -i '0,/UAT/{s/UAT/PROD/}' res.resx
+           cat app1/res.resx | grep "UAT"
+           else
+           echo " By default its UAT"
+           fi
+
       name: get inputs    
       shell: bash      
       
