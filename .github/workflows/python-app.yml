@@ -31,7 +31,8 @@ jobs:
            cat app1/res.resx | grep "UAT"
            if [ $env_name == PROD ]
            then
-           cat app1/res.resx | sed -i '0,/UAT/{s/UAT/PROD/}' res.resx
+           sed -i '0,/UAT/{s/UAT/PROD/}' res.resx
+           echo " after replace of env name "
            cat app1/res.resx | grep "UAT"
            else
            echo " By default its UAT"
