@@ -3,7 +3,13 @@
 
 name: Python application
 
-on: workflow_dispatch
+on: 
+ workflow_dispatch:
+  inputs:
+   Tag: 
+    description: 'Environment name'
+    required: true
+    default: 'UAT'
  
 
 jobs:
@@ -17,8 +23,17 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+        
+    - run: |
+           echo "Tags: ${{ github.event.inputs.tags }}" 
+           env_name=${{ github.event.inputs.tags }}
+           echo " env name is $env_name"
+      name: get inputs    
+      shell: bash      
+      
     - name: Install dependencies
       run: |
+        echo " env name is 2 $env_name"
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
